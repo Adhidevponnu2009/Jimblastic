@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Minecraft Server — Staff & Details</title>
+  <style>
+    .logo {
+  font-family: 'Press Start 2P', cursive; /* Minecraft-style pixel font */
+  font-weight:400; /* Press Start 2P is pixel-like, so normal weight works */
+  font-size:16px;
+  /* keep other styles as before */
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size:18px;
+  margin:0;
+}
+    :root{
+      --bg:#0b1220;
+      --card:#0f1724;
+      --accent:#2ecc71;
+      --muted:#9aa6b2;
+      --glass: rgba(255,255,255,0.03);
+      --gap:18px;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#071026 0%, #071a2a 60%);
+      color:#e6eef5;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:30px;
+    }
+
+    .site {
+      max-width:1000px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:var(--gap);
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--gap);
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+      padding:18px;
+      border-radius:12px;
+      box-shadow: 0 6px 24px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    header .title {
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    .logo {
+      width:56px;
+      height:56px;
+      border-radius:10px;
+      background:linear-gradient(135deg,#2b6cff,#7b61ff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      font-size:18px;
+      color:white;
+      box-shadow: 0 6px 18px rgba(43,108,255,0.18);
+    }
+
+    h1{margin:0;font-size:20px}
+    p.lead{margin:0;color:var(--muted);font-size:13px}
+
+    .server-info {
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:var(--gap);
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 8px 28px rgba(2,6,23,0.6);
+    }
+
+    .server-meta {
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .meta-row {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+    }
+
+    .meta-row strong{font-size:13px}
+    .ip {
+      background:var(--glass);
+      padding:10px 12px;
+      border-radius:8px;
+      font-weight:600;
+      font-size:14px;
+      color:var(--accent);
+      display:inline-block;
+      cursor:pointer;
+      user-select:none;
+      transition:background 0.2s;
+    }
+    .ip:hover { background:rgba(255,255,255,0.06); }
+
+    .copied {
+      font-size:12px;
+      color:var(--muted);
+      margin-top:4px;
+      display:none;
+    }
+
+    .staff-list {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:6px;
+    }
+
+    .staff-item {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:12px;
+      border-radius:10px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008));
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    .avatar {
+      width:48px;
+      height:48px;
+      border-radius:8px;
+      background:linear-gradient(135deg,#ffb86b,#ff6b6b);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:#082027;
+      font-size:14px;
+      flex-shrink:0;
+    }
+
+    .staff-body { flex:1 }
+    .staff-name { margin:0;font-weight:700;font-size:15px; }
+    .staff-roles { margin:4px 0 0 0;color:var(--muted);font-size:13px }
+
+    .role-badge {
+      display:inline-block;
+      margin-left:6px;
+      margin-top:4px;
+      padding:4px 8px;
+      font-size:12px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.02);
+      color:var(--muted);
+    }
+
+    .right-col .card-small { margin-bottom:12px; }
+
+    footer{
+      margin-top:6px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width:880px){
+      .server-info{ grid-template-columns: 1fr; }
+      header{flex-direction:column;align-items:flex-start}
+      .avatar { width:40px; height:40px; font-size:12px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="site">
+    <header>
+      <div class="title">
+        <div class="logo">MC</div>
+        <div>
+          <h1>Minecraft Server — Staff Directory</h1>
+          <p class="lead">Quick view of server staff & their roles</p>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div class="ip" onclick="copyIP()">play.example-server.com</div>
+        <div id="copyMsg" class="copied">Copied!</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:6px">Version: 1.20.x (example)</div>
+      </div>
+    </header>
+
+    <section class="server-info">
+      <div class="card">
+        <h2 style="margin-top:0">Server Details</h2>
+
+        <!-- Intro paragraph -->
+        <p style="color:var(--muted); font-size:14px; line-height:1.5; margin:0 0 14px 0;">
+          Jimblastic Boys is a fun and community-driven Minecraft server built for players who enjoy survival gameplay with a few helpful plugins. 
+          Our team works hard to maintain a friendly and fair environment where everyone can explore, build, and enjoy adventures together. 
+          Whether you’re gathering resources, teaming up with friends, or just relaxing in-game, our staff is always here to keep the server safe and enjoyable for all. 
+          Respect, teamwork, and creativity are at the heart of our world — join us and be part of the journey!
+        </p>
+
+        <div class="server-meta">
+          <div class="meta-row">
+            <strong>Server Name</strong>
+            <span>Jimblastic Boys</span>
+          </div>
+          <div class="meta-row">
+            <strong>IP / Address</strong>
+            <span class="ip" onclick="copyIP()">play.example-server.com</span>
+          </div>
+          <div class="meta-row">
+            <strong>Active World</strong>
+            <span>Survival — Vanilla + Plugins</span>
+          </div>
+          <div class="meta-row">
+            <strong>Rules</strong>
+            <span style="color:var(--muted)">Be respectful, no griefing, no cheating</span>
+          </div>
+
+          <hr style="border:none;height:1px;background:rgba(255,255,255,0.02);margin:10px 0;border-radius:2px">
+
+          <div>
+            <strong>Server Staff</strong>
+            <div class="staff-list" aria-live="polite">
+              <!-- Staff entries -->
+              <div class="staff-item">
+                <div class="avatar">A6</div>
+                <div class="staff-body">
+                  <p class="staff-name">Adhi6064164</p>
+                  <p class="staff-roles">
+                    <span class="role-badge">Resource Pack Operator</span>
+                    <span class="role-badge">Mod Operator</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="staff-item">
+                <div class="avatar">AA</div>
+                <div class="staff-body">
+                  <p class="staff-name">Arakal Ambru</p>
+                  <p class="staff-roles">
+                    <span class="role-badge">Owner</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="staff-item">
+                <div class="avatar">AL</div>
+                <div class="staff-body">
+                  <p class="staff-name">Abraham Luffy</p>
+                  <p class="staff-roles">
+                    <span class="role-badge">Behaviour Operator</span>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="right-col">
+        <div class="card card-small">
+          <h3 style="margin:0 0 8px 0">Quick Actions</h3>
+          <p style="margin:0 0 12px 0;color:var(--muted)">Useful links and commands for staff</p>
+          <ul style="margin:0 0 0 18px;color:var(--muted);font-size:14px">
+            <li>/ban &lt;player&gt; — Ban a player</li>
+            <li>/kick &lt;player&gt; — Kick a player</li>
+            <li>/resourcepack give — Manage resource packs</li>
+          </ul>
+        </div>
+
+        <div class="card card-small">
+          <h3 style="margin:0 0 8px 0">Server Stats</h3>
+          <p style="margin:0;color:var(--muted)">Players online: <strong>12</strong></p>
+          <p style="margin:6px 0 0 0;color:var(--muted)">Uptime: <strong>3 days 4 hrs</strong></p>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      &copy; 2025 Adhi's Realm — Staff list shown as provided.
+    </footer>
+  </main>
+
+  <script>
+    function copyIP() {
+      const ip = "play.example-server.com";
+      navigator.clipboard.writeText(ip).then(() => {
+        const msg = document.getElementById("copyMsg");
+        msg.style.display = "block";
+        setTimeout(() => { msg.style.display = "none"; }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
